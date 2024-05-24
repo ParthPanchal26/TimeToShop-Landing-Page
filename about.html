@@ -7,18 +7,39 @@
     <title>E commmerce Landing Page</title>
     <script src="https://cdn.tailwindcss.com"></script>
 
+    <style>
+        /* Add some basic styles to hide the menu on small screens by default */
+        .hidden {
+            display: none;
+        }
+
+        .block {
+            display: block;
+        }
+
+        @media (min-width: 1024px) {
+            .lg\\:block {
+                display: block !important;
+            }
+
+            .lg\\:hidden {
+                display: none !important;
+            }
+        }
+    </style>
+
 </head>
 
 <body>
     <div>
-        <header class="relative w-full border-b bg-white pb-4">
+        <header class="sticky top-0 relative w-full border-b bg-white pb-4">
             <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-2">
                 <div class="inline-flex items-center space-x-2">
                     <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/steam-icon.svg"
                         alt="Steam icon" class="h-10" title="Steam icon">
                     <span class="font-bold">TimeToShop</span>
                 </div>
-                <div class="hidden lg:block">
+                <div id="nav-links" class="hidden lg:block">
                     <ul class="inline-flex space-x-8">
                         <li>
                             <a href="./index.html" class="text-sm font-semibold text-gray-800 hover:text-gray-900">
@@ -32,7 +53,7 @@
                         </li>
                         <li>
                             <a href="./contact.html" class="text-sm font-semibold text-gray-800 hover:text-gray-900">
-                                Conntact us
+                                Contact us
                             </a>
                         </li>
                     </ul>
@@ -43,7 +64,7 @@
                         Login
                     </button>
                 </div>
-                <div class="lg:hidden">
+                <div id="hamburger" class="lg:hidden">
                     <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none"
                         stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"
                         class="h-6 w-6 cursor-pointer">
@@ -125,7 +146,7 @@
                 <footer class="px-4 py-10">
                     <div class="flex flex-col md:flex-row md:items-center">
                         <img src="https://uxwing.com/wp-content/themes/uxwing/download/brands-and-social-media/steam-icon.svg"
-                        alt="Steam icon" class="h-10" title="Steam icon">
+                            alt="Steam icon" class="h-10" title="Steam icon">
                     </div>
                     <div class="mt-16 grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5">
                         <div class="mb-8 lg:mb-0">
@@ -184,5 +205,19 @@
         </div>
 
 </body>
+
+<script>
+    // JavaScript to toggle the mobile menu
+    document.getElementById('hamburger').addEventListener('click', function () {
+        var navLinks = document.getElementById('nav-links');
+        if (navLinks.classList.contains('hidden')) {
+            navLinks.classList.remove('hidden');
+            navLinks.classList.add('block');
+        } else {
+            navLinks.classList.remove('block');
+            navLinks.classList.add('hidden');
+        }
+    });
+</script>
 
 </html>
