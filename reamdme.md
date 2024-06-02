@@ -1,1 +1,0 @@
-https://parthpanchal26.github.io/TimeToShop-Landing-Page/index.html
